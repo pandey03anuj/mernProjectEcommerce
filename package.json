@@ -6,12 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"    
+    "dev": "nodemon backend/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^16.4.13",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cloudinary": "^1.40.0",
@@ -21,10 +21,12 @@
     "express-fileupload": "^1.4.0",
     "history": "^5.3.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.0",
-    "node": "^16.20.1",
+    "mongoose": "^6.12.1",
     "nodemailer": "^6.9.3",
     "stripe": "^13.8.0",
     "validator": "^13.9.0"
+  },
+  "engines": {
+    "node": ">=15 <19"
   }
 }

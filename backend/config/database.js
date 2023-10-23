@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
 const connectDatabase = () => {
+  const uri =
+    "mongodb+srv://meanujpandey:anuj5260@ecommerce.p1xjhnd.mongodb.net/Ecommerce?retryWrites=true&w=majority";
   mongoose
-    .connect(process.env.DB_URI, {
+    .connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       // useCreateIndex: true,        Mongodb latest version remove useCreateIndex and it is byDefault true and rest also newUrlParser and unifiedTopology are byDefault true

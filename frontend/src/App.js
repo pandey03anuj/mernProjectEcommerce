@@ -72,7 +72,7 @@ function App() {
 
   return (
     <Suspense>
-      <Router>
+      <Router basename="/React">
         <Header />
         {isAuthenticated && <UserOptions user={user} />}
 

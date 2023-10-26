@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const connectDatabase = () => {
-  const uri='mongodb+srv://meanujpandey:anuj5260@ecommerce.p1xjhnd.mongodb.net/Ecommerce?retryWrites=true&w=majority'
+
+  const uri =
+    "mongodb+srv://meanujpandey:anuj5260@ecommerce.p1xjhnd.mongodb.net/Ecommerce?retryWrites=true&w=majority";
+
   mongoose
     .connect(uri, {
       useNewUrlParser: true,

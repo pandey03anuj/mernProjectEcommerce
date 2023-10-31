@@ -8,7 +8,6 @@
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js"
   },
-  "homepage": "https://ecommerce-anujpandey.onrender.com/",
   "author": "",
   "license": "ISC",
   "dependencies": {

@@ -50,11 +50,11 @@ function App() {
 
   const [stripeApiKey, setStripeApiKey] = useState("");
 
-  async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapikey");
+  // async function getStripeApiKey() {
+  //   const { data } = await axios.get("/api/v1/stripeapikey");
 
-    setStripeApiKey(data.stripeApiKey);
-  }
+  //   // setStripeApiKey(data.stripeApiKey);
+  // }
 
   useEffect(() => {
     WebFont.load({
@@ -65,14 +65,14 @@ function App() {
 
     store.dispatch(loadUser());
 
-    getStripeApiKey();
+    // getStripeApiKey();
   }, []);
 
   // window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
     <Suspense>
-      <Router basename="/React">
+      <Router>
         <Header />
         {isAuthenticated && <UserOptions user={user} />}
 

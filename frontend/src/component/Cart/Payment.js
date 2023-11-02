@@ -20,7 +20,7 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { useNavigate } from "react-router-dom";
 import { createOrder, clearErrors } from "../../actions/orderAction";
 
-const Payment = () => {
+const Payment = ({}) => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
 
   let navigate = useNavigate();
@@ -60,7 +60,7 @@ const Payment = () => {
         },
       };
       const { data } = await axios.post(
-        "/api/v1/payment/process",
+        `/api/v1/payment/process`,
         paymentData,
         config
       );

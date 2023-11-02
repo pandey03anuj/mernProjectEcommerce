@@ -51,7 +51,7 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapikey");
+    const { data } = await axios.get(`/api/v1/stripeapikey`);
 
     setStripeApiKey(data.stripeApiKey);
   }
@@ -126,7 +126,7 @@ function App() {
           </Route>
 
           <Route element={<ProtectedRoute />}>
-            <Route path="/orders/me" element={<MyOrders />} />
+            <Route path="/orders" element={<MyOrders />} />
           </Route>
 
           <Route element={<ProtectedRoute />}>
@@ -167,6 +167,11 @@ function App() {
           <Route element={<ProtectedRoute isAdmin={true} />}>
             <Route path="/admin/reviews" element={<ProductReviews />} />
           </Route>
+          <Route
+            component={
+              window.location.pathname === "/process/payment" ? null : NotFound
+            }
+          />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

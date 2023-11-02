@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   clearErrors,
   getProductDetails,
@@ -24,9 +24,11 @@ import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 
 const ProductDetails = () => {
+  const { isAuthenticated } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const { id } = useParams();
   const alert = useAlert();
+  let navigate = useNavigate();
 
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
@@ -63,8 +65,11 @@ const ProductDetails = () => {
   };
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(id, quantity));
-    alert.success("Items added to cart");
+    if (isAuthenticated == false) navigate("/login");
+    else {
+      dispatch(addItemsToCart(id, quantity));
+      alert.success("Items added to cart");
+    }
   };
 
   const submitReviewToggle = () => {

@@ -1,4 +1,6 @@
-Hi! My name is Abhishek Singh, I have created this tutorial to teach MERN Stack for free on YouTube.
+
+Hi! My name is Anuj Pandey 
+
 
 For Backend - npm i
 

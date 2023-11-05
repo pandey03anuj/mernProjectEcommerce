@@ -16,13 +16,12 @@ const categories = [
   "Footwear",
   "Bottom",
   "Tops",
-  "Attire",
   "Camera",
   "SmartPhones",
-  "Watch",
-  "Apple",
-  "Product",
+  "Watches",
   "Televisions",
+  "Accessories",
+  "Others",
 ];
 
 const Products = () => {
@@ -35,8 +34,14 @@ const Products = () => {
   const [category, setCategory] = useState("");
   const [ratings, setRatings] = useState(0);
 
-  const { products, loading, error, productsCount, resultPerPage } =
-    useSelector((state) => state.products);
+  const {
+    products,
+    loading,
+    error,
+    productsCount,
+    resultPerPage,
+    filteredProductsCount,
+  } = useSelector((state) => state.products);
 
   const { keyword } = useParams();
 
@@ -47,6 +52,8 @@ const Products = () => {
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
+
+  let count = filteredProductsCount;
 
   useEffect(() => {
     if (error) {
@@ -111,7 +118,7 @@ const Products = () => {
             </fieldset>
           </div>
 
-          {resultPerPage < productsCount && (
+          {resultPerPage < count && (
             <div className="paginationBox">
               <Pagination
                 activePage={currentPage}

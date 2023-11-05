@@ -48,7 +48,9 @@ import NotFound from "./component/layout/NotFound/NotFound.js";
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
-  const [stripeApiKey, setStripeApiKey] = useState(process.env.STRIPE_API_KEY);
+  const [stripeApiKey, setStripeApiKey] = useState(
+    `${process.env.STRIPE_API_KEY}`
+  );
 
   async function getStripeApiKey() {
     const { data } = await axios.get(`/api/v1/stripeapikey`);
@@ -173,7 +175,7 @@ function App() {
             }
           />
 
-            <Route
+          <Route
             component={
               window.location.pathname === "/process/payment" ? null : NotFound
             }

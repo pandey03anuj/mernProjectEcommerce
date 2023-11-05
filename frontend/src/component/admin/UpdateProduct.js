@@ -45,9 +45,12 @@ const UpdateProduct = ({}) => {
     "Footwear",
     "Bottom",
     "Tops",
-    "Attire",
     "Camera",
     "SmartPhones",
+    "Watches",
+    "Televisions",
+    "Accessories",
+    "Others",
   ];
 
   const productId = id;
